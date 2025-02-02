@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+:root{
+    --linear-grad :linear-gradient(to right , rgb(20, 30, 48) , rgb(36, 59, 85) );
+    --grad-clr1 : rgb(20, 30, 48);
+    --grad-clr2 : rgb(36, 59, 85) ;
+}
+
+body {
+    height : 100vh;
+    background: rgb(246, 245, 247);
+    display: grid;
+    place-content: center;
+    font-family: 'Playfair+Display',sans-serif;
+   /* background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));*/
+}
+
+.container {
+    position: relative;
+    width: 850px;
+    height: 500px;
+    background-color:white ;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-radius: 14px;
+    overflow: hidden;
+}
+.form-container {
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    padding: 0px , 40px;
+    transition: all 0.6s ease-in-out;
+}
+
+.sign-up-container{
+    opacity: 0;
+    z-index: 1;
+
+}
+.sign-in-container {
+    z-index: 2;
+}
+
+form{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 50px;
+}
+
+h1{
+    color: var(--grad-clr1);
+}
+
+.social-container {
+    margin: 20px 0px;
+}
+
+.social-container a {
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 50%;
+    display:inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 5px;
+    height: 40px;
+    flex-direction: column;
+    width: 40px;
+
+}
+
+p{
+    font-size: 14px;
+}
+
+.infield{
+    position: relative;
+    margin :8px 0px;
+    width: 100%;
+}
+
+input{
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 14px;
+    background-color: rgb(243, 243, 243);
+    border: none;
+    
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input:focus {
+    border-bottom: 1px solid black;
+}
+
+a{
+    color:rgb(51, 51, 51) ;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0px;
+}
+a.forgot {
+    padding-bottom: 3px;
+    margin-top: -3px;
+    color: black;
+
+}
+
+button{
+    border-radius: 20px;
+    border : 1px solid var(--grad-clr1);
+    background-color: var(--grad-clr2);
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: bold;
+    padding: 12px 45px;
+    cursor: pointer;
+   
+   
+}
+.btn{
+    margin-top: 14px ;
+    transition: 80ms ease-in;
+}
+.btn:hover {
+    background: rgb(255, 255, 255);
+    color: var(--grad-clr1);
+}
+
+.common-container {
+    position: absolute;
+    top: 0;
+    left: 60%;
+    width: 40%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 9;
+}
+
+#panelbtn{
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    top: 304px;
+    transform: translateX(-50%);
+    padding: 20.5px 70.5px ;
+    margin-top: -5px;
+    border: 1px solid rgb(255, 255, 255);
+    background: transparent;
+   
+}
+
+.overlay{
+    position: relative;
+    background: var(--linear-grad);
+    color: rgb(255, 255, 255);
+    left: -150%;
+    height: 100%;
+    width: 250%;
+    transition: transform 0.6s ease-in-out;
+    
+}
+
+.panel{
+   position: absolute;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   padding: 0px 40px;
+    text-align: center;
+    height: 100%;
+    width: 340px;
+    transition: 0.6s ease-in-out;
+}
+
+.left-box{
+    right: 60%;
+    transform: translateX(-12%);
+}
+
+.right-box{
+    right: 0;
+    transform: translateX(0%) ;
+}
+
+.overlay h1 {
+    color: rgb(255, 255, 255);
+}
+p{
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 25px 0px 35px;
+}
+
+.boxbtn {
+    padding: 12px 45px;
+}
+
+.box-active .common-container {
+    transform: translateX(-150%);
+}
+
+.box-active .overlay {
+    transform: translateX(50%);
+}
+
+.box-active .left-box {
+   transform: translateX(25%); 
+}
+
+.box-active .right-box {
+    transform: translateX(35%); 
+ }
+
+ .box-active .sign-in-container {
+    transform: translateX(20%);
+    opacity: 0;
+}
+
+.box-active .sign-up-container{
+    transform: translateX(66.7%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s ;
+}
+
+@keyframes show {
+    0% , 50% {
+        opacity: 0;
+        z-index: 1;
+    }
+
+    50.1% , 100% {
+        opacity: 1;
+        z-index: 5;
+    }
+}
